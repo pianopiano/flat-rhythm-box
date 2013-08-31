@@ -1,0 +1,750 @@
+@font-face {
+  font-family: 'HelveticaNeueLTStd';
+  src: url('../font/HelveticaNeueLTStd-MdCn.otf') format('truetype');
+}
+@font-face {
+  font-family: '7barPBd';
+  src: url('../font/7barPBd.otf') format('truetype');
+}
+@font-face {
+  font-family: 'HelveticaBd';
+  src: url('../font/HelveticaBd___-.ttf') format('truetype');
+}
+
+html {
+    background-color: #00ffff;
+    padding: 50px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	position: relative;
+    -webkit-user-select: none;
+    font-size: 15px;
+	font-family: 'HelveticaNeueLTStd', sans-serif;
+    text-align: center;
+    color: #fefdd0;
+}
+
+#container {
+	position: relative;
+    width: 500px;
+    margin: 0 auto;
+    background-color: #fefdd0;
+    border: 5px solid #2c3e50;
+}
+
+#header {
+    margin: 0;
+    height: 50px;
+    color: #fefdd0;
+    background-color: #2c3e50;
+    text-align: left;
+    position: relative;
+	font-family: 'HelveticaBd', sans-serif;
+}
+
+#title {
+	width: 170px;
+	padding: 5px 0 0 10px;
+	background-color: #e5603d;
+	-webkit-border-radius: 1px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.disable{
+	pointer-events: none;
+}
+
+#title div {
+	position: absolute;
+	top: 0;
+	right: -15px;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 15px 0 14px 15px;
+	border-color: transparent transparent transparent #e5603d;
+}
+
+#swich {
+	width: 65px;
+	padding: 3px 2px 0 10px;
+	background-color: #e5603d;
+	-webkit-border-radius: 20px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+/* dummy
+ * ------------------------------------------ */
+#dummy {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	opacity: 0.8;
+	z-index: 3;
+}
+
+/* sequencer
+ * ------------------------------------------ */
+#sequencer{
+	width: 433px;
+    background-color: #2c3e50;
+    border: 1px solid #454545;
+	overflow: hidden;
+    margin: 20px auto 15px auto;
+}
+
+/* materials
+ * ------------------------------------------ */
+#materials {
+    width: 433px;
+    margin: 0 auto;
+    background-color: #2c3e50;
+    border: 1px solid #454545;
+    overflow: hidden;
+}
+
+#material-name {
+    width: 435px;
+    margin: 3px auto 10px;
+    overflow: hidden;
+}
+
+#material-name div {
+   float: left;
+   width: 50px;
+   height: 20px;
+   margin: 2px 2px 0 2px;
+   color: #2c3e50;
+}
+
+.p1 {background-color: #f5804b !important;}
+.p2 {background-color: #fdd24f !important;}
+.p3 {background-color: #1dd2a5 !important;}
+.p4 {background-color: #2cc49b !important;}
+.p5 {background-color: #5f9ba5 !important;}
+.p6 {background-color: #e5603d !important;}
+.p7 {background-color: #edc549 !important;}
+.p8 {background-color: #2cb79a !important;}
+
+/* controller
+ * ------------------------------------------ */
+#controller {
+    padding: 15px 30px;
+    width: 440px;
+    height: 75px;
+    overflow: hidden;
+    border-top: 1px solid #2c3e50;
+    border-bottom: 1px solid #2c3e50;
+}
+
+#controller div {
+    float: left;
+}
+
+/* tempo
+ ---------------------------------------------------- */
+#bpm-container {
+    width: 154px;
+    height: 80px;
+    margin: 0 30px;
+    padding: 0;
+}
+
+#bpm {
+    width: 90px;
+    height: 30px;
+    margin: 0 2px;
+    border: 1px solid #2c3e50;
+    color: #2c3e50;
+    font-family: '7barPBd', sans-serif;
+}
+
+#bpm p {
+    margin: 3px;
+    padding: 0;
+}
+
+#tempo {
+    width: 160px;
+    height: 36px;
+    margin: 5px 0;
+    padding: 0;
+    background: url(../img/meter.png) no-repeat;
+}
+
+#tempo .slider {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 160px;
+}
+
+#tempo .slider.slider-horizontal .slider-handle {
+    /*margin-left: -8px;
+    margin-top: -4px;*/
+    cursor: pointer;
+}
+
+#tempo .slider.slider-vertical .slider-handle {
+    /*margin-left: -4px;
+    margin-top: -13px;*/
+}
+
+#tempo .slider input {
+    display: none;
+}
+
+#tempo .slider-handle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #2c3e50;
+    opacity: 1;
+}
+
+#tempo .slider.slider-horizontal .slider-selection {
+    display: none;
+}
+
+#tempo .slider-track {
+    height: 8px;
+    width: 152px;
+    top: 19px;
+    left: 0;
+    background-color: #fefdd0;
+}
+
+
+/* bpm-btn
+ ---------------------------------------------------- */
+.bpm-btn {
+    width: 26px;
+    height: 26px;
+    margin: 3px 1px 0;
+    background: #2c3e50;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    cursor: pointer;
+}
+
+.bpm-btn-inner {
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.6em;
+    font-size: 14px;
+}
+
+
+/* play stop
+ * ------------------------------------------ */
+#play-pause {
+    width: 110px;
+}
+
+.play-pause-btn {
+    margin: 0px 5px 5px 0;
+    height: 50px;
+    color: #fefdd0;
+    line-height: 55px;
+}
+
+#play-pause-txt {
+    width: 110px;
+	height: 15px !important;
+    color: #2c3e50 !important;
+}
+
+#play-pause-txt p {
+    width: 48px;
+    margin: 0 3px;
+    padding: 0;
+    float: left;
+}
+
+#plus {
+    padding: 4px 0 0 6px;
+}
+
+#minus {
+    padding: 3px 0 0 9px;
+}
+
+/* bank
+ * ------------------------------------------ */
+#bank {
+    width: 110px;
+    height: 55px;
+    background-color: #2c3e50;
+    float: right;
+}
+
+.minibox {
+    width: 20px;
+    height: 20px;
+    margin: 5px 3px;
+    float: left;
+    cursor: pointer;
+    background-color: #fefdd0;
+}
+
+#bank-name {
+    width: 105px;
+    height: 15px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+#bank-name p {
+	margin: 5px auto;
+}
+
+#sample-pattern {
+    width: 110px;
+    height: 20px;
+	font-family: 'HelveticaBd', sans-serif;
+	text-align: center;
+}
+
+#sample-pattern-name {
+    margin: 2px auto !important;
+    padding: 2px 0 0 0;
+    height: 15px;
+    width: 95px;
+	color: #fefdd0;
+}
+
+#pattern-btns {
+	margin: 3px 0 0 3px;
+}
+
+#pattern {
+    margin: 15px 12px;
+    width: 450px;
+    height: 150px;
+    overflow: hidden;
+}
+
+#pattern div {
+    float: left;
+}
+
+/* swing
+ ---------------------------------------------------- */
+#swing-container {
+    margin: 13px 0 0 12px;
+}
+
+#swing {
+    width: 82px;
+    height: 36px;
+    margin: 0 0 0 5px;
+    padding: 0 2px;
+    background: url(../img/swing-meter.png) no-repeat 4px 0;
+}
+
+#swing .slider {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 82px;
+    margin: 9px 0 0 0;
+}
+
+#swing .slider.slider-horizontal .slider-handle {
+    margin-left: -8px;
+    margin-top: -4px;
+    cursor: pointer;
+}
+
+#swing .slider.slider-vertical .slider-handle {
+    margin-left: -4px;
+    margin-top: -13px;
+}
+
+#swing .slider input {
+    display: none;
+}
+
+#swing .slider-handle {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #2c3e50;
+    opacity: 1;
+    border: 0 solid transparent;
+    cursor: default;
+}
+
+#swing .slider.slider-horizontal .slider-selection {
+    display: none;
+}
+
+#swing .slider-track {
+    height: 8px;
+    width: 76px;
+    margin: 5px 0 0 2px;
+    top: 0;
+    left: 0;
+    background-color: #fefdd0;
+}
+
+
+/* btns class
+ * ------------------------------------------ */
+.box {
+    width: 50px;
+    height: 30px;
+    min-height: 30px;
+    line-height: 30px;
+    background-color: #fefdd0;
+    margin: 2px;
+    float: left;
+    cursor: pointer;
+}
+
+.btn {
+    margin: 3px 2px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    background-color: #2c3e50;
+    cursor: pointer;
+}
+
+#pad-container {
+    width: 225px;
+    height: 150px;
+    float: right;
+    overflow: hidden;
+}
+
+#pad-container div {
+    float: right;
+}
+
+.param-title {
+	width: 60px;
+	height: 12px;
+    margin: 7px 0 0 16px;
+    color: #e74c3c;
+}
+
+.param-title p {
+    padding: 0;
+    margin: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.pad-name {
+    width: 54px;
+    height: 15px;
+    color: #2c3e50;
+}
+
+#volume-container {
+    width: 100px;
+    height: 140px;
+    margin: 0 10px;
+    position: relative;
+}
+
+#volume-container .param-title {
+	width: 100px;
+	text-align: center;
+	margin: 0 auto 10px auto !important;
+}
+
+#volume {
+    background-color: #2c3e50;
+	height: 80px;
+	width: 80px;
+	margin: 30px 10px 5px 10px;
+	border-radius: 40px;
+	-webkit-border-radius: 40px;
+	-webkit-transform: rotate(0deg);
+	cursor:move;
+}
+
+#select-sound {
+	width: 90px;
+	margin: 0px 0 0 15px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+#sound {
+	width: 90px;
+	margin: 0 0 2px 0;
+	text-align: center;
+	color: #e74c3c;
+}
+
+#select-sound-box {
+    background-color: #2c3e50;
+	height: 45px;
+	font-family: 'HelveticaBd', sans-serif;
+}
+
+#select-sound-text {
+    width: 80px;
+    height: 18px;
+    margin: 2px 4px 3px 4px;
+    color: #fefdd0;
+}
+
+#select-sound-btn {
+    width: 80px;
+    height: 15px;
+    background-color: #000000;
+    margin: 2px 2px 0px 5px;
+    float: left;
+    color: #2c3e50;
+    cursor: pointer;
+    background-color: #fefdd0;
+}
+
+#marker-top {
+	position: absolute;
+	top: 30px;
+	left: 45px;
+}
+
+#marker-left {
+	position: absolute;
+	top: 125px;
+	left: 10px;
+}
+
+#marker-right {
+	position: absolute;
+	top: 125px;
+	right: 10px;
+}
+
+.marker {
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+    color: #2c3e50;
+}
+
+.f14 {font-size: 14px;}
+.f15 {font-size: 15px;}
+.f16 {font-size: 16px;}
+.f18 {font-size: 18px;}
+.f24 {font-size: 24px;}
+.f30 {font-size: 30px;}
+.shape {
+  box-shadow: 	rgb(0, 217, 217) 1px 1px,
+				rgb(0, 217, 217) 2px 2px,
+				rgb(0, 217, 217) 3px 3px,
+				rgb(0, 217, 217) 4px 4px,
+				rgb(0, 217, 217) 5px 5px,
+				rgb(0, 217, 217) 6px 6px,
+				rgb(0, 217, 217) 7px 7px,
+				rgb(0, 217, 217) 8px 8px,
+				rgb(0, 217, 217) 9px 9px,
+				rgb(0, 217, 217) 10px 10px,
+				rgb(0, 217, 217) 11px 11px,
+				rgb(0, 217, 217) 12px 12px,
+				rgb(0, 217, 217) 13px 13px,
+				rgb(0, 217, 217) 14px 14px,
+				rgb(0, 217, 217) 15px 15px,
+				rgb(0, 217, 217) 16px 16px,
+				rgb(0, 217, 217) 17px 17px,
+				rgb(0, 217, 217) 18px 18px,
+				rgb(0, 217, 217) 19px 19px,
+				rgb(0, 217, 217) 20px 20px,
+				rgb(0, 217, 217) 21px 21px,
+				rgb(0, 217, 217) 22px 22px,
+				rgb(0, 217, 217) 23px 23px,
+				rgb(0, 217, 217) 24px 24px,
+				rgb(0, 217, 217) 25px 25px,
+				rgb(0, 217, 217) 26px 26px,
+				rgb(0, 217, 217) 27px 27px,
+				rgb(0, 217, 217) 28px 28px,
+				rgb(0, 217, 217) 29px 29px,
+				rgb(0, 217, 217) 30px 30px,
+				rgb(0, 217, 217) 31px 31px,
+				rgb(0, 217, 217) 32px 32px,
+				rgb(0, 217, 217) 33px 33px,
+				rgb(0, 217, 217) 34px 34px,
+				rgb(0, 217, 217) 35px 35px,
+				rgb(0, 217, 217) 36px 36px,
+				rgb(0, 217, 217) 37px 37px,
+				rgb(0, 217, 217) 38px 38px,
+				rgb(0, 217, 217) 39px 39px,
+				rgb(0, 217, 217) 40px 40px,
+				rgb(0, 217, 217) 41px 41px,
+				rgb(0, 217, 217) 42px 42px,
+				rgb(0, 217, 217) 43px 43px,
+				rgb(0, 217, 217) 44px 44px,
+				rgb(0, 217, 217) 45px 45px,
+				rgb(0, 217, 217) 46px 46px,
+				rgb(0, 217, 217) 47px 47px,
+				rgb(0, 217, 217) 48px 48px,
+				rgb(0, 217, 217) 49px 49px,
+				rgb(0, 217, 217) 50px 50px,
+				rgb(0, 217, 217) 51px 51px,
+				rgb(0, 217, 217) 52px 52px,
+				rgb(0, 217, 217) 53px 53px,
+				rgb(0, 217, 217) 54px 54px,
+				rgb(0, 217, 217) 55px 55px,
+				rgb(0, 217, 217) 56px 56px,
+				rgb(0, 217, 217) 57px 57px,
+				rgb(0, 217, 217) 58px 58px,
+				rgb(0, 217, 217) 59px 59px,
+				rgb(0, 217, 217) 60px 60px,
+				rgb(0, 217, 217) 61px 61px,
+				rgb(0, 217, 217) 62px 62px,
+				rgb(0, 217, 217) 63px 63px,
+				rgb(0, 217, 217) 64px 64px,
+				rgb(0, 217, 217) 65px 65px,
+				rgb(0, 217, 217) 66px 66px,
+				rgb(0, 217, 217) 67px 67px,
+				rgb(0, 217, 217) 68px 68px,
+				rgb(0, 217, 217) 69px 69px,
+				rgb(0, 217, 217) 70px 70px,
+				rgb(0, 217, 217) 71px 71px,
+				rgb(0, 217, 217) 72px 72px,
+				rgb(0, 217, 217) 73px 73px,
+				rgb(0, 217, 217) 74px 74px,
+				rgb(0, 217, 217) 75px 75px,
+				rgb(0, 217, 217) 76px 76px,
+				rgb(0, 217, 217) 77px 77px,
+				rgb(0, 217, 217) 78px 78px,
+				rgb(0, 217, 217) 79px 79px,
+				rgb(0, 217, 217) 80px 80px,
+				rgb(0, 217, 217) 81px 81px,
+				rgb(0, 217, 217) 82px 82px,
+				rgb(0, 217, 217) 83px 83px,
+				rgb(0, 217, 217) 84px 84px,
+				rgb(0, 217, 217) 85px 85px,
+				rgb(0, 217, 217) 86px 86px,
+				rgb(0, 217, 217) 87px 87px,
+				rgb(0, 217, 217) 88px 88px,
+				rgb(0, 217, 217) 89px 89px,
+				rgb(0, 217, 217) 90px 90px,
+				rgb(0, 217, 217) 91px 91px,
+				rgb(0, 217, 217) 92px 92px,
+				rgb(0, 217, 217) 93px 93px,
+				rgb(0, 217, 217) 94px 94px,
+				rgb(0, 217, 217) 95px 95px,
+				rgb(0, 217, 217) 96px 96px,
+				rgb(0, 217, 217) 97px 97px,
+				rgb(0, 217, 217) 98px 98px,
+				rgb(0, 217, 217) 99px 99px,
+				rgb(0, 217, 217) 100px 100px,
+				rgb(0, 217, 217) 101px 101px,
+				rgb(0, 217, 217) 102px 102px,
+				rgb(0, 217, 217) 103px 103px,
+				rgb(0, 217, 217) 104px 104px,
+				rgb(0, 217, 217) 105px 105px,
+				rgb(0, 217, 217) 106px 106px,
+				rgb(0, 217, 217) 107px 107px,
+				rgb(0, 217, 217) 108px 108px,
+				rgb(0, 217, 217) 109px 109px,
+				rgb(0, 217, 217) 110px 110px,
+				rgb(0, 217, 217) 111px 111px,
+				rgb(0, 217, 217) 112px 112px,
+				rgb(0, 217, 217) 113px 113px,
+				rgb(0, 217, 217) 114px 114px,
+				rgb(0, 217, 217) 115px 115px,
+				rgb(0, 217, 217) 116px 116px,
+				rgb(0, 217, 217) 117px 117px,
+				rgb(0, 217, 217) 118px 118px,
+				rgb(0, 217, 217) 119px 119px,
+				rgb(0, 217, 217) 120px 120px,
+				rgb(0, 217, 217) 121px 121px,
+				rgb(0, 217, 217) 122px 122px,
+				rgb(0, 217, 217) 123px 123px,
+				rgb(0, 217, 217) 124px 124px,
+				rgb(0, 217, 217) 125px 125px,
+				rgb(0, 217, 217) 126px 126px,
+				rgb(0, 217, 217) 127px 127px,
+				rgb(0, 217, 217) 128px 128px,
+				rgb(0, 217, 217) 129px 129px,
+				rgb(0, 217, 217) 130px 130px,
+				rgb(0, 217, 217) 131px 131px,
+				rgb(0, 217, 217) 132px 132px,
+				rgb(0, 217, 217) 133px 133px,
+				rgb(0, 217, 217) 134px 134px,
+				rgb(0, 217, 217) 135px 135px,
+				rgb(0, 217, 217) 136px 136px,
+				rgb(0, 217, 217) 137px 137px,
+				rgb(0, 217, 217) 138px 138px,
+				rgb(0, 217, 217) 139px 139px,
+				rgb(0, 217, 217) 140px 140px,
+				rgb(0, 217, 217) 141px 141px,
+				rgb(0, 217, 217) 142px 142px,
+				rgb(0, 217, 217) 143px 143px,
+				rgb(0, 217, 217) 144px 144px,
+				rgb(0, 217, 217) 145px 145px,
+				rgb(0, 217, 217) 146px 146px,
+				rgb(0, 217, 217) 147px 147px,
+				rgb(0, 217, 217) 148px 148px,
+				rgb(0, 217, 217) 149px 149px,
+				rgb(0, 217, 217) 150px 150px,
+				rgb(0, 217, 217) 151px 151px,
+				rgb(0, 217, 217) 152px 152px,
+				rgb(0, 217, 217) 153px 153px,
+				rgb(0, 217, 217) 154px 154px,
+				rgb(0, 217, 217) 155px 155px,
+				rgb(0, 217, 217) 156px 156px,
+				rgb(0, 217, 217) 157px 157px,
+				rgb(0, 217, 217) 158px 158px,
+				rgb(0, 217, 217) 159px 159px,
+				rgb(0, 218, 218) 160px 160px,
+				rgb(0, 219, 219) 161px 161px,
+				rgb(0, 220, 220) 162px 162px,
+				rgb(0, 221, 221) 163px 163px,
+				rgb(0, 222, 222) 164px 164px,
+				rgb(0, 223, 223) 165px 165px,
+				rgb(0, 224, 224) 166px 166px,
+				rgb(0, 225, 225) 167px 167px,
+				rgb(0, 226, 226) 168px 168px,
+				rgb(0, 226, 226) 169px 169px,
+				rgb(0, 227, 227) 170px 170px,
+				rgb(0, 228, 228) 171px 171px,
+				rgb(0, 229, 229) 172px 172px,
+				rgb(0, 230, 230) 173px 173px,
+				rgb(0, 231, 231) 174px 174px,
+				rgb(0, 232, 232) 175px 175px,
+				rgb(0, 233, 233) 176px 176px,
+				rgb(0, 234, 234) 177px 177px,
+				rgb(0, 235, 235) 178px 178px,
+				rgb(0, 236, 236) 179px 179px,
+				rgb(0, 236, 236) 180px 180px,
+				rgb(0, 237, 237) 181px 181px,
+				rgb(0, 238, 238) 182px 182px,
+				rgb(0, 239, 239) 183px 183px,
+				rgb(0, 240, 240) 184px 184px,
+				rgb(0, 241, 241) 185px 185px,
+				rgb(0, 242, 242) 186px 186px,
+				rgb(0, 243, 243) 187px 187px,
+				rgb(0, 244, 244) 188px 188px,
+				rgb(0, 245, 245) 189px 189px,
+				rgb(0, 245, 245) 190px 190px,
+				rgb(0, 246, 246) 191px 191px,
+				rgb(0, 247, 247) 192px 192px,
+				rgb(0, 248, 248) 193px 193px,
+				rgb(0, 249, 249) 194px 194px,
+				rgb(0, 250, 250) 195px 195px,
+				rgb(0, 251, 251) 196px 196px,
+				rgb(0, 252, 252) 197px 197px,
+				rgb(0, 253, 253) 198px 198px,
+				rgb(0, 254, 254) 199px 199px,
+				rgb(0, 255, 255) 200px 200px;
+}
